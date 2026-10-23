@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: domowe-obowiazki
+    runtime: node
+    plan: starter
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_PATH
+        value: /var/data/households.sqlite
+      - key: TRUST_CF_CONNECTING_IP
+        value: "true"
+    disk:
+      name: household-data
+      mountPath: /var/data
+      sizeGB: 1

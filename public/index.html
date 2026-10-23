@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f4ee">
+    <title>Domowe obowiązki</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="brand">
+        <div class="brand-mark" aria-hidden="true">D</div>
+        <div>
+          <p class="eyebrow">WSPÓLNY DOM</p>
+          <h1>Domowe obowiązki</h1>
+        </div>
+      </header>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <section id="access-view" class="view" aria-labelledby="welcome-title">
+        <div class="intro">
+          <p class="eyebrow">PROSTY PODZIAŁ, MNIEJ ZGADYWANIA</p>
+          <h2 id="welcome-title">Ustalcie wspólną przestrzeń.</h2>
+          <p>Jedno miejsce dla Was obojga, dostępne na każdym telefonie.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-heading">
+              <span class="step">01</span>
+              <div>
+                <p class="eyebrow">ZACZNIJ TUTAJ</p>
+                <h3>Utwórz gospodarstwo</h3>
+              </div>
+            </div>
+            <p class="card-copy">Podaj imiona obu osób. Po utworzeniu dostaniesz prywatny kod dla drugiej osoby.</p>
+            <form id="create-form" class="form">
+              <label for="first-name">Twoje imię</label>
+              <input id="first-name" name="firstName" maxlength="60" autocomplete="given-name" required>
+              <label for="second-name">Imię drugiej osoby</label>
+              <input id="second-name" name="secondName" maxlength="60" autocomplete="off" required>
+              <button class="button button-primary" type="submit">Utwórz gospodarstwo</button>
+            </form>
+          </article>
+
+          <article class="card card-secondary">
+            <div class="card-heading">
+              <span class="step">02</span>
+              <div>
+                <p class="eyebrow">MASZ JUŻ KOD?</p>
+                <h3>Dołącz do gospodarstwa</h3>
+              </div>
+            </div>
+            <p class="card-copy">Wpisz kod otrzymany od drugiej osoby, aby zobaczyć tę samą przestrzeń.</p>
+            <form id="join-form" class="form">
+              <label for="invite-code">Kod gospodarstwa</label>
+              <input id="invite-code" name="code" maxlength="22" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+              <p class="field-note">Kod rozróżnia wielkie i małe litery.</p>
+              <button class="button button-secondary" type="submit">Dołącz do gospodarstwa</button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section id="invite-view" class="view invite-view" aria-labelledby="invite-title" hidden>
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">GOTOWE</p>
+        <h2 id="invite-title">Gospodarstwo utworzone</h2>
+        <p class="invite-copy">Przekaż ten prywatny kod drugiej osobie. Po odświeżeniu lub przejściu dalej nie będzie można go ponownie wyświetlić.</p>
+        <div class="code-box">
+          <code id="invite-code-value"></code>
+          <button id="copy-code" class="button button-secondary" type="button">Kopiuj kod</button>
+        </div>
+        <button id="continue-button" class="button button-primary" type="button">Przejdź do gospodarstwa</button>
+      </section>
+
+      <section id="household-view" class="view household-view" aria-labelledby="household-title" hidden>
+        <div class="success-mark" aria-hidden="true">✓</div>
+        <p class="eyebrow">WSPÓLNA PRZESTRZEŃ</p>
+        <h2 id="household-title">Jesteście połączeni.</h2>
+        <p class="household-copy">Każde z Was może otworzyć tę stronę na swoim telefonie.</p>
+        <div class="profile-panel">
+          <label for="profile-select">Korzystasz jako</label>
+          <select id="profile-select"></select>
+          <p class="field-note">Wybór zostanie zapamiętany na tym urządzeniu.</p>
+        </div>
+        <div id="profile-list" class="profile-list" aria-label="Profile gospodarstwa"></div>
+      </section>
+    </main>
+  </body>
+</html>
